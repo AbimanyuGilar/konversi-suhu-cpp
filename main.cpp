@@ -1,52 +1,65 @@
 #include <iostream>
+#include <limits>
 using namespace std;
 
 int main() {
-    string output;
-    int conv;
     double input;
-    double celsius;
-    double fahrenheit;
-    double reamur;
-
-    cout << "Masukkan besar suhu >> "; 
-    cin >> input; cout << endl;
+    int conv;
 
     while (true) {
-        cout << "pilih metode convert:\n" << 
-        "1. celsius ke fahrenheit dan reamur\n" <<
-        "2. fahrenheit ke celsius dan reamur\n" <<
-        "3. reamur ke celsius dan fahrenheit\n" <<
+        cout << "Masukkan besar suhu (dalam Celsius, Fahrenheit, atau Reamur) >> "; 
+        while (!(cin >> input)) {
+            cin.clear(); 
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Input tidak valid! Silakan masukkan angka yang benar: ";
+        }
+        
+        cout << endl;
+
+        cout << "Pilih metode konversi:\n" << 
+        "1. Celsius ke Fahrenheit dan Reamur\n" <<
+        "2. Fahrenheit ke Celsius dan Reamur\n" <<
+        "3. Reamur ke Celsius dan Fahrenheit\n" <<
+        "0. Keluar\n" <<
         ">> "; 
 
-        cin >> conv; cout << endl;
+        while (!(cin >> conv) || conv < 0 || conv > 3) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Pilihan tidak valid! Silakan pilih 1, 2, 3, atau 0 untuk keluar: ";
+        }
+        
+        cout << endl;
 
         switch (conv) {
             case 1:
-                celsius = input;
-                fahrenheit = celsius * 9.0 / 5.0 + 32;
-                reamur = celsius * 4.0 / 5.0;
-                cout << "Konversi dari Celsius ke Fahrenheit dan ke Reamur\nCelsius = " << celsius << endl << "Fahrenheit = " << fahrenheit << endl << "Reamur = " << reamur << endl << endl;
+                {
+                    double celsius = input;
+                    double fahrenheit = celsius * 9.0 / 5.0 + 32;
+                    double reamur = celsius * 4.0 / 5.0;
+                    cout << "Konversi dari Celsius ke Fahrenheit dan Reamur\nCelsius = " << celsius << endl << "Fahrenheit = " << fahrenheit << endl << "Reamur = " << reamur << endl << endl;
+                }
                 break;
             case 2:
-                fahrenheit = input;
-                celsius = (input - 32) * 5.0 / 9.0;
-                reamur = celsius * 4.0 / 5.0;
-                cout << "Konversi dari Fahrenheit ke Celsius dan ke Reamur\nFahrenheit = " << fahrenheit << endl << "Celsius = " << celsius << endl << "Reamur = " << reamur << endl << endl;
+                {
+                    double fahrenheit = input;
+                    double celsius = (fahrenheit - 32) * 5.0 / 9.0;
+                    double reamur = celsius * 4.0 / 5.0;
+                    cout << "Konversi dari Fahrenheit ke Celsius dan Reamur\nFahrenheit = " << fahrenheit << endl << "Celsius = " << celsius << endl << "Reamur = " << reamur << endl << endl;
+                }
                 break;
             case 3: 
-                reamur = input;
-                celsius = 5 * input / 4;
-                fahrenheit = celsius * 9.0 / 5.0 + 32;
-                cout << "Konversi dari Reamur ke Celsius dan ke Fahrenheit\nReamur = " << reamur << endl << "Celsius = " << celsius << endl << "Fahrenheit = " << fahrenheit << endl << endl;
+                {
+                    double reamur = input;
+                    double celsius = 5 * reamur / 4;
+                    double fahrenheit = celsius * 9.0 / 5.0 + 32;
+                    cout << "Konversi dari Reamur ke Celsius dan ke Fahrenheit\nReamur = " << reamur << endl << "Celsius = " << celsius << endl << "Fahrenheit = " << fahrenheit << endl << endl;
+                }
                 break;
-            default:
-                cout << "***Masukkan metode convert dengan benar!***" << endl << endl;
-                continue;
-                break;
-            }
-
-            break;
+            case 0:
+                cout << "Keluar dari program." << endl;
+                return 0;
+        }
     }
 
     return 0;
