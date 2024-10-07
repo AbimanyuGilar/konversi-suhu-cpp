@@ -7,11 +7,11 @@ int main() {
     int conv;
 
     while (true) {
-        cout << "Masukkan besar suhu (dalam Celsius, Fahrenheit, atau Reamur) >> "; 
+        cout << "Masukkan besar suhu (dalam Celsius, Fahrenheit, atau Reamur)\n>> "; 
         while (!(cin >> input)) {
             cin.clear(); 
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Input tidak valid! Silakan masukkan angka yang benar: ";
+            cout << "\033[F" << "\033[K" << ">> ";
         }
         
         cout << endl;
@@ -26,7 +26,7 @@ int main() {
         while (!(cin >> conv) || conv < 0 || conv > 3) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Pilihan tidak valid! Silakan pilih 1, 2, 3, atau 0 untuk keluar: ";
+            cout << "\033[F" << "\033[K" << ">> ";
         }
         
         cout << endl;
