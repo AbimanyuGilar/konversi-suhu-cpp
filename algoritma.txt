@@ -1,15 +1,7 @@
-1. Pengguna memasukkan input tipe suhu berupa celsius/fahrenheit/reamur
-2. Jika input celsius:
-	1. pengguna memasukkan nilai suhu celsius
-	2. konversi nilai suhu ke fahrenheit dan ke reamur
-3. Jika input fahrenheit:
-	1. pengguna memasukkan nilai suhu fahrenheit
-	2. konversi nilai suhu ke celsius dan ke reamur
-4. Jika input reamur:
-	1. pengguna memasukkan nilai suhu reamur
-	2. konversi nilai suhu ke celsius dan ke fahrenheit
-5. Jika tidak di antara tipe di atas:
-	1. tampilkan "masukkan suhu dengan benar!" di terminal
-	2. kembali ke sesi menginput tipe suhu
-6. Tampilkan hasil konversi
+1. Pengguna memasukkan input besar suhu
+2. Jika input besar suhu dari pengguna tidak valid, maka sistem akan kembali ke langkah input besar suhu
+3. Jika input besar suhu valid, pengguna lanjut memilih metode konversi
+4. Jika input metode konversi dari pengguna tidak valid, maka sistem akan kembali ke langkah input metode konversi
+5. Jika input metode knversi valid, sistem mengkonversi suhu
+6. Sistem menampilkan hasil konversi
 7. Selesai
